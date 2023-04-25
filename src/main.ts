@@ -1,9 +1,10 @@
 import meow from 'meow';
-import { name } from '../package.json' assert { type: 'json' };
 import type { Dirent } from 'fs';
 import { readdir, rename } from 'fs/promises';
 import { resolve } from 'path';
 import { normalize } from './hfsDecomposition.js';
+
+const { name } = JSON.parse(process.argv[1]);
 
 const cli = meow(
   `
