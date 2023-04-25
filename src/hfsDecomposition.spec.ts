@@ -1,6 +1,11 @@
 import { assert, expect, test } from 'vitest';
 import { normalizationTable, normalize } from './hfsDecomposition.js';
 
+test('normalizationTable の illegal は一文字', () => {
+  for (const illegal of normalizationTable.keys()) {
+    expect(illegal).to.have.length(1);
+  }
+});
 test('normalizationTable の illegal と replaceWith に共通部分がない', () => {
   const illegalSet = new Set(normalizationTable.keys());
   const replaceSet = new Set([...normalizationTable.values()].flatMap((s) => [...s]));

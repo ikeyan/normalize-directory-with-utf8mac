@@ -9,8 +9,6 @@
 //   .map(([l, r]) => `["${replaceHex(l)}", "${r.split(/\s+/).map(replaceHex).join('')}"]`)
 //   .join(', ')}]`;
 
-import { expect } from 'vitest';
-
 export const normalizationTableAsArray: readonly (readonly [string, string])[] = [
   ['\u00C0', '\u0041\u0300'],
   ['\u00C1', '\u0041\u0301'],
@@ -967,16 +965,13 @@ function generateIllegalPattern(): RegExp {
       ? `${charCodeToStr(range[0])}${charCodeToStr(range[1])}`
       : `${charCodeToStr(range[0])}-${charCodeToStr(range[1])}`;
   let result: string = '';
-  let resultSize = 0;
   for (const [illegal, ,] of normalizationTableAsArray) {
-    expect(illegal).to.be.lengthOf(1);
     const charCode = illegal.charCodeAt(0);
     if (range !== null) {
       if (charCode - 1 <= range[1]) {
         range[1] = charCode;
       } else {
         result += rangeToStr(range);
-        resultSize += range[1] - range[0] + 1;
         range = null;
       }
     }
@@ -986,7 +981,6 @@ function generateIllegalPattern(): RegExp {
   }
   if (range !== null) {
     result += rangeToStr(range);
-    resultSize += range[1] - range[0] + 1;
   }
   return new RegExp(`[${result}]`, 'g');
 }
