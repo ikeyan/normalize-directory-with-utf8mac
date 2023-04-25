@@ -4,7 +4,7 @@ import { readdir, rename } from 'fs/promises';
 import { resolve } from 'path';
 import { normalize } from './hfsDecomposition.js';
 
-const { name } = JSON.parse(process.argv[1]);
+const name = process.argv[1];
 
 const cli = meow(
   `
