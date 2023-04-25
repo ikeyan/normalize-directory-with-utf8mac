@@ -2,6 +2,10 @@
   "name": "media-normalizer",
   "type": "module",
   "version": "1.0.0",
+  "scripts": {
+    "build": "tsc -P tsconfig.json",
+    "start": "node dist/src/main.js"
+  },
   "dependencies": {
     "meow": "^11.0.0"
   },
