@@ -41,7 +41,7 @@ async function normalizeRecursively(path: string) {
   await Promise.all(
     [...normalizeMap].flatMap(([normalizedName, dirents]): Promise<void>[] => {
       if (dirents.length > 1) {
-        console.log(`${path} contains ${dirents}`);
+        console.log(`${path} contains ${dirents.map((dirent) => dirent.name)}`);
         // TODO merge directories
         if (dirents.some((x) => x.name === normalizedName)) {
           return [];
