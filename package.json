@@ -7,7 +7,8 @@
     "start": "node dist/src/main.js"
   },
   "dependencies": {
-    "meow": "^13.2.0"
+    "meow": "^13.2.0",
+    "p-limit": "^6.1.0"
   },
   "devDependencies": {
     "@tsconfig/node22": "^22.0.0",
