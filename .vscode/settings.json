@@ -1,5 +1,8 @@
 {
-    "files.watcherExclude": {
-        "**/target": true
-    }
+  "files.watcherExclude": {
+    "**/target": true
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

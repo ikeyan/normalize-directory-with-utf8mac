@@ -962,8 +962,8 @@ function generateIllegalPattern(): RegExp {
     range[0] === range[1]
       ? charCodeToStr(range[0])
       : range[0] + 1 === range[1]
-      ? `${charCodeToStr(range[0])}${charCodeToStr(range[1])}`
-      : `${charCodeToStr(range[0])}-${charCodeToStr(range[1])}`;
+        ? `${charCodeToStr(range[0])}${charCodeToStr(range[1])}`
+        : `${charCodeToStr(range[0])}-${charCodeToStr(range[1])}`;
   let result: string = '';
   for (const [illegal, ,] of normalizationTableAsArray) {
     const charCode = illegal.charCodeAt(0);
